@@ -6,35 +6,47 @@
 -->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
+		@yield('title')
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    @yield('links')
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+			<div id="wrapper" class="@yield('wrapper-class', '')">
 
+        <!-- Intro -->
+        @yield('intro', '')
 				<!-- Header -->
-                <header id="header">
-                    <a href="index.html" class="logo">Massively</a>
-                </header>
+        <header id="header">
+            <a href="{{ route('home') }}" class="logo">Massively</a>
+        </header>
 
 				<!-- Nav -->
-					<x-nav/>
+        @props(['contactInfo' => $contactInfo])
+				<x-nav :contactInfo="$contactInfo" />
                     
 				<!-- Main -->
-					@yield('main')
+        <div id="main">
+					@yield('content')
+         <!-- Pagination -->
+
+          @yield('pagination', '')
+        </div>
+
+        
+        
 				<!-- Footer -->
-					
-                    <x-footer/>
+        @props(['contactInfo' => $contactInfo])
+        <x-footer :contactInfo="$contactInfo" />
+
+      
 				<!-- Copyright -->
 					<div id="copyright">
 						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
-
 			</div>
 
 		<!-- Scripts -->

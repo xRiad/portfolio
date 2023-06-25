@@ -8,14 +8,15 @@ use Illuminate\View\Component;
 
 class footer extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
-    }
+  public $contactInfo;
 
+  /**
+   * Create a new component instance.
+   */
+    public function __construct($contactInfo)
+    {
+      $this->contactInfo = $contactInfo;
+    }
     /**
      * Get the view / contents that represent the component.
      */

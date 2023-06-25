@@ -4687,3 +4687,6 @@ input, select, textarea {
 		}
 
 	}
+  .error {
+    color: rgb(213, 64, 64);
+  }
