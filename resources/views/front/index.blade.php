@@ -9,7 +9,6 @@
 @section('content')
     <section class="post">
         <header class="major">
-            <span class="date">April 25, 2017</span>
             <h1>{{$aboutMe->name}}</h1>
             <p>{{$aboutMe->short_desc}}</p>
         </header>

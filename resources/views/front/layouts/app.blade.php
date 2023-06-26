@@ -20,19 +20,19 @@
         <!-- Intro -->
         @yield('intro', '')
 				<!-- Header -->
-        <header id="header">
-            <a href="{{ route('home') }}" class="logo">Massively</a>
+        
+        <header style="{{ Request::routeIs('home') ? 'height: 0px !important;' : '' }}" id="header">
+          <a href="{{ route('home') }}" class="logo">Home</a>
         </header>
 
 				<!-- Nav -->
-        @props(['contactInfo' => $contactInfo])
+        @props(['contactInfo' => $contactInfo, 'active' => 'home'])
 				<x-nav :contactInfo="$contactInfo" />
                     
 				<!-- Main -->
         <div id="main">
 					@yield('content')
          <!-- Pagination -->
-
           @yield('pagination', '')
         </div>
 

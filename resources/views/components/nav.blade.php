@@ -1,8 +1,8 @@
 <nav id="nav">
     <ul class="links">
-        <li class="active"><a href="{{ route('home') }}">Ana sahife</a></li>
-        <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-        <li><a href="{{ route('blog') }}">Block</a></li>
+        <li class="{{ Request::routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+        <li class="{{ Request::routeIs('portfolio.index') ? 'active' : '' }}"><a href="{{ route('portfolio.index') }}">Portfolio</a></li>
+        {{-- <li><a href="{{ route('blog') }}">Blog</a></li> --}}
     </ul>
     <ul class="icons">
         <li><a href="{{ $contactInfo->twitter }}" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>

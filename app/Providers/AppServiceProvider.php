@@ -21,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['front.index','front.portfolio','front.blog'], ContactInfoComposer::class);
+        View::composer(['front.index','front.portfolio.index','front.blog','front.portfolio.detail'], ContactInfoComposer::class);
     }
 }
