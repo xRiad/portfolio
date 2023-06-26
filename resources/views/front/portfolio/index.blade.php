@@ -37,8 +37,7 @@
    
   <article>
     <header>
-      {{-- <span class="date">April 24, 2017</span> --}}
-      <h2><a href="#">{!! $project->title !!}</a></h2>
+      <h2><a href="{{ route('project', $project->id) }}">{!! $project->title !!}</a></h2>
     </header>
     <a href="#" class="image fit"><img src="{{ asset($project->image) }}" alt="" /></a>
     <ul class="actions special">

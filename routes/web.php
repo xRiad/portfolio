@@ -19,6 +19,7 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/portfolio',[PortfolioController::class, 'index'])->name('portfolio.index');
-// Route::get('/blog',[BlogController::class, 'index'])->name('blog');
+Route::get('/blog',[BlogController::class, 'index'])->name('blog.index');
 Route::post('/contact',[ContactController::class, 'createMessage'])->name('contact');
 Route::get('/project/{id}',[PortfolioController::class, 'getProject'])->name('project');
+Route::get('/blog/{id}',[BlogController::class, 'getBlog'])->name('blog');

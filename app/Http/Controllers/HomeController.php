@@ -13,8 +13,7 @@ class HomeController extends Controller
         $aboutMe = AboutMe::firstOrFail();
         return view('front.index', ['aboutMe' => $aboutMe]);
       } catch (\Exception $e) {
-        echo $e->getMessage();
-        // return view('front.index', ['error' => $e->getMessage()]);
+        return view('front.index', ['error' => $e->getMessage()]);
       }
     }
 }
