@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProjectsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +24,10 @@ Route::get('/blog',[BlogController::class, 'index'])->name('blog.index');
 Route::post('/contact',[ContactController::class, 'createMessage'])->name('contact');
 Route::get('/project/{id}',[PortfolioController::class, 'getProject'])->name('project');
 Route::get('/blog/{id}',[BlogController::class, 'getBlog'])->name('blog');
-Route::get('/admin',[BlogController::class, 'getBlog'])->name('admin.index');
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', fn () => view('admin.index'))->name('index');
+    Route::get('/projects',[ProjectsController::class, 'projects'])->name('projects.index');
+    Route::get('/projects/creation',[ProjectsController::class, 'creation'])->name('projects.creation');
+    Route::get('/projects/edit',[ProjectsController::class, 'edit'])->name('projects.edit');
+});

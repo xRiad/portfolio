@@ -4,10 +4,10 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <x-header/>
+    <x-admin.header/>
 
     <!-- Main Sidebar Container -->
-    <x-side-bar/>
+    <x-admin.side-bar/>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -32,7 +32,7 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <x-footer/>
+    <x-admin.footer/>
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->

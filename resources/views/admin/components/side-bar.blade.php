@@ -54,10 +54,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin.categories')}}" class="nav-link">
+                    <a href="{{ route('admin.projects.index') }}" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
-                            Categories
+                            Projects
                         </p>
                     </a>
                 </li>
