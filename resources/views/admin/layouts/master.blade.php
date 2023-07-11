@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('admin.layouts.includes.head')
+<x-admin.head/>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -42,6 +42,6 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-@include('admin.layouts.includes.foot')
+<x-admin.foot/>
 </body>
 </html>
