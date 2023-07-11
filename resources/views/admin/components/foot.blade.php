@@ -65,5 +65,8 @@
             "responsive": true,
         });
     });
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
 </script>
 

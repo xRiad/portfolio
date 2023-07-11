@@ -29,5 +29,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', fn () => view('admin.index'))->name('index');
     Route::get('/projects',[ProjectsController::class, 'projects'])->name('projects.index');
     Route::get('/projects/creation',[ProjectsController::class, 'creation'])->name('projects.creation');
+    Route::post('/projects/create',[ProjectsController::class, 'create'])->name('projects.create');
     Route::get('/projects/edit',[ProjectsController::class, 'edit'])->name('projects.edit');
 });

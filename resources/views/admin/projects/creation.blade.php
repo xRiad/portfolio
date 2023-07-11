@@ -17,16 +17,18 @@
 
 
                         <div class="card-body">
+                          <form action="{{ route('admin.projects.create') }}" method="POST">
+                            @csrf
                             <div class="form-group">
                               <label for="exampleInputEmail1">Title</label>
-                              <input type="email" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                              <input type="text" name="title" class="form-control" placeholder="Title">
                             </div>
-                            <div id="summernote">Hello Summernote</div>
+                            <textarea name="desc" id="summernote"></textarea>
                             <div class="form-group">
                               <label for="exampleInputFile">File input</label>
                               <div class="input-group">
                                 <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="exampleInputFile">
+                                  <input type="file" name="img" class="custom-file-input" id="exampleInputFile">
                                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                                 <div class="input-group-append">
@@ -36,11 +38,13 @@
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-switch">
-                                  <input type="checkbox" name="togle" value="1" class="custom-control-input" id="customSwitch1">
+                                  <input type="checkbox" name="status" value="1" class="custom-control-input" id="customSwitch1">
                                   <label class="custom-control-label" for="customSwitch1">Toggle this custom switch element</label>
                                 </div>
                             </div>
-                          </div>
+                            <button type="submit"></button>
+                          </form>
+                        </div>
                         <!-- /.card-body -->
                     </div>
                 </div>
