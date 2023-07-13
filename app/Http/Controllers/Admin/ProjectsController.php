@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
+use App\Http\Requests\Projects\ProjectRequest;
+use Intervention\Image\Facades\Image as Img;
 use App\Models\Project;
 class ProjectsController extends Controller
 {
@@ -17,13 +18,23 @@ class ProjectsController extends Controller
        return view('admin.projects.creation');
     }
 
-    public function create (Request $request) {
-        $project = new Project();
+    public function create (ProjectRequest $request) {
 
+        $img = $request->img;
+dd(Img::make($img)->getClientOriginalExtension());
+        $imgExtension = $img->getClientOriginalExtension();
+        $uuid = Str::uuid();
+        $imgPath = 'assets/images/';
+        $imgName = $uuid . '.' . $imgExtension;
+        $savingPath = $imgPath . $imgName;
+        Img::make($img)->resize(600, 500)->save($savingPath);
+
+        $project = new Project();
         $project->title = $request->title;
         $project->desc = $request->desc;
-        
-        dd($project->$_COOKIE);
+        $project->image = $savingPath;
+        $project->status = $request->status;
+        $project->save();
     }
 }
 

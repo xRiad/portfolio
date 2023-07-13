@@ -38,11 +38,11 @@
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-switch">
-                                  <input type="checkbox" name="status" value="1" class="custom-control-input" id="customSwitch1">
+                                  <input type="checkbox" name="status" value="1" class="custom-control-input" id="customSwitch1" checked>
                                   <label class="custom-control-label" for="customSwitch1">Toggle this custom switch element</label>
                                 </div>
                             </div>
-                            <button type="submit"></button>
+                            <button type="submit">Submit</button>
                           </form>
                         </div>
                         <!-- /.card-body -->
