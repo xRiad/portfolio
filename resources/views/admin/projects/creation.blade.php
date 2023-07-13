@@ -9,7 +9,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
+                          Text: {{session('failure')}}
+                          @if(session('success'))
+                            <h3 class="card-title">{{ session('success') }}</h3>
+                          @elseif(session('failure'))
+                            <h3 class="card-title">{{ session('failure') }}</h3>
+                          @endif
                         </div>
                         <!-- /.card-header -->
                         <div class="row1 ">
@@ -17,11 +22,14 @@
 
 
                         <div class="card-body">
-                          <form action="{{ route('admin.projects.create') }}" method="POST">
+                          <form enctype="multipart/form-data" action="{{ route('admin.projects.create') }}" method="POST">
                             @csrf
                             <div class="form-group">
                               <label for="exampleInputEmail1">Title</label>
                               <input type="text" name="title" class="form-control" placeholder="Title">
+                              @error('title')
+                                 {{$message}}
+                              @enderror
                             </div>
                             <textarea name="desc" id="summernote"></textarea>
                             <div class="form-group">

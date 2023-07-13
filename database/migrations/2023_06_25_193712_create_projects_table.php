@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->text('desc');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
-
+        
     /**
      * Reverse the migrations.
      */

@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Projects\ProjectRequest;
-use Intervention\Image\Facades\Image as Img;
+use Intervention\Image\Facades\Image;
 use App\Models\Project;
+use Illuminate\Support\Str;
 class ProjectsController extends Controller
 {
     public function projects () {
@@ -21,20 +22,25 @@ class ProjectsController extends Controller
     public function create (ProjectRequest $request) {
 
         $img = $request->img;
-dd(Img::make($img)->getClientOriginalExtension());
         $imgExtension = $img->getClientOriginalExtension();
         $uuid = Str::uuid();
         $imgPath = 'assets/images/';
         $imgName = $uuid . '.' . $imgExtension;
         $savingPath = $imgPath . $imgName;
-        Img::make($img)->resize(600, 500)->save($savingPath);
+        Image::make($img)->resize(600, 500)->save($savingPath);
 
         $project = new Project();
         $project->title = $request->title;
         $project->desc = $request->desc;
         $project->image = $savingPath;
         $project->status = $request->status;
-        $project->save();
+        try {
+            $project->save();
+            return back()->with('success', 'Project has been saved successfully !');
+        } catch (\Throwable $th) {
+            return back()->with('failure', $th);
+        }
+               
     }
 }
 

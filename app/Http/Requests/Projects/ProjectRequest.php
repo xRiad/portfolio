@@ -24,7 +24,7 @@ class ProjectRequest extends FormRequest
         return [
            'title' => ['required', 'max: 255'],
            'desc' => ['required'],
-           /* 'img' => ['image', 'mimes:jpg,jpeg,png,webp,svg'] */
+           'img' =>['required', "image", "mimes:jpg,png,webp,svg"], 
         ];
     }
 }
